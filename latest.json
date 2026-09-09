@@ -1,0 +1,210 @@
+{
+ "snapshot_date": "2026-09-09",
+ "fetched_at": "2026-09-09T21:25:03+00:00",
+ "source": "https://alphabrain-ai.com/api/data/premium/public/outcome-record?days=365",
+ "as_of": "2026-09-09T21:25:02.442000+00:00",
+ "window_days": 365,
+ "manifest_sha256_served": "38dfb8bfe6c6384464c05874229d81e3df5e5ad9ef787260cc7d785c62c2f6e8",
+ "manifest_sha256_recomputed": "38dfb8bfe6c6384464c05874229d81e3df5e5ad9ef787260cc7d785c62c2f6e8",
+ "manifest_consistent": true,
+ "matured": 10,
+ "immature": 39,
+ "no_trade": 6,
+ "headline": "10 matured scenarios (6 legacy proxy, 0 structured rule, 4 untracked): 4 activated, 1 reached TP2 before the stop, 3 stopped, 6 never activated, 4 with activation unknown. No success rate: a rate needs 100 matured scenarios across 30 days and 30 activations on 10 distinct days.",
+ "by_method": {
+  "all": {
+   "matured": 10,
+   "activated": 4,
+   "not_activated": 6,
+   "activated_outcomes": {
+    "tp2": 1,
+    "tp1_then_stop": 0,
+    "stop_before_target": 3,
+    "tp1_to_end": 0,
+    "open_at_end": 0,
+    "resolution_unknown": 0
+   },
+   "not_activated_reasons": {
+    "cancelled_by_guard": 0,
+    "retest_timeout": 0,
+    "expired_unactivated": 2,
+    "activation_unknown": 4
+   },
+   "rates_allowed": false,
+   "tp2_share_min_pct": null
+  },
+  "rule": {
+   "matured": 0,
+   "activated": 0,
+   "not_activated": 0,
+   "activated_outcomes": {
+    "tp2": 0,
+    "tp1_then_stop": 0,
+    "stop_before_target": 0,
+    "tp1_to_end": 0,
+    "open_at_end": 0,
+    "resolution_unknown": 0
+   },
+   "not_activated_reasons": {
+    "cancelled_by_guard": 0,
+    "retest_timeout": 0,
+    "expired_unactivated": 0,
+    "activation_unknown": 0
+   },
+   "rates_allowed": false,
+   "tp2_share_min_pct": null
+  },
+  "proxy": {
+   "matured": 6,
+   "activated": 4,
+   "not_activated": 2,
+   "activated_outcomes": {
+    "tp2": 1,
+    "tp1_then_stop": 0,
+    "stop_before_target": 3,
+    "tp1_to_end": 0,
+    "open_at_end": 0,
+    "resolution_unknown": 0
+   },
+   "not_activated_reasons": {
+    "cancelled_by_guard": 0,
+    "retest_timeout": 0,
+    "expired_unactivated": 2,
+    "activation_unknown": 0
+   },
+   "rates_allowed": false,
+   "tp2_share_min_pct": null
+  },
+  "unknown": {
+   "matured": 4,
+   "activated": 0,
+   "not_activated": 4,
+   "activated_outcomes": {
+    "tp2": 0,
+    "tp1_then_stop": 0,
+    "stop_before_target": 0,
+    "tp1_to_end": 0,
+    "open_at_end": 0,
+    "resolution_unknown": 0
+   },
+   "not_activated_reasons": {
+    "cancelled_by_guard": 0,
+    "retest_timeout": 0,
+    "expired_unactivated": 0,
+    "activation_unknown": 4
+   },
+   "rates_allowed": false,
+   "tp2_share_min_pct": null
+  }
+ },
+ "corrections_count": 0,
+ "corrections_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+ "corrections": [],
+ "evaluator": {
+  "version": "evaluator-v2",
+  "code_sha256": "706cb67cb67a5abc11ae635a77c5237f1a19319b5b913acbab61e7d865b456f4",
+  "replay_command": "python replay_bundle.py <bundle.json>"
+ },
+ "plans": [
+  {
+   "report_id": "25c1f2a9b044",
+   "plan_index": 0,
+   "symbol": "ORCAUSDT",
+   "method": "proxy",
+   "status": "INVALIDATED",
+   "outcome_class": "stop_before_target",
+   "published_at": "2026-09-07T07:30:51+00:00",
+   "archive": "backfill"
+  },
+  {
+   "report_id": "25c1f2a9b044",
+   "plan_index": 1,
+   "symbol": "WLDUSDT",
+   "method": "proxy",
+   "status": "EXPIRED",
+   "outcome_class": "expired_unactivated",
+   "published_at": "2026-09-07T07:30:51+00:00",
+   "archive": "backfill"
+  },
+  {
+   "report_id": "25c1f2a9b044",
+   "plan_index": 2,
+   "symbol": "UAIUSDT",
+   "method": "proxy",
+   "status": "INVALIDATED",
+   "outcome_class": "stop_before_target",
+   "published_at": "2026-09-07T07:30:51+00:00",
+   "archive": "backfill"
+  },
+  {
+   "report_id": "16ef5d60e3e7",
+   "plan_index": 0,
+   "symbol": "BTCUSDT",
+   "method": "proxy",
+   "status": "TP2_HIT",
+   "outcome_class": "tp2",
+   "published_at": "2026-09-06T15:31:50+00:00",
+   "archive": "backfill"
+  },
+  {
+   "report_id": "ccac05f7c5e7",
+   "plan_index": 0,
+   "symbol": "FARTCOINUSDT",
+   "method": "proxy",
+   "status": "INVALIDATED",
+   "outcome_class": "stop_before_target",
+   "published_at": "2026-09-06T11:16:35+00:00",
+   "archive": "backfill"
+  },
+  {
+   "report_id": "ccac05f7c5e7",
+   "plan_index": 1,
+   "symbol": "MARSCOINUSDT",
+   "method": "proxy",
+   "status": "EXPIRED",
+   "outcome_class": "expired_unactivated",
+   "published_at": "2026-09-06T11:16:35+00:00",
+   "archive": "backfill"
+  },
+  {
+   "report_id": "1482bf4a06bc",
+   "plan_index": 0,
+   "symbol": "APRUSDT",
+   "method": "unknown",
+   "status": "UNTRACKED",
+   "outcome_class": "activation_unknown",
+   "published_at": "2026-09-05T07:25:15+00:00",
+   "archive": null
+  },
+  {
+   "report_id": "dca6a349d000",
+   "plan_index": 0,
+   "symbol": "ICXUSDT",
+   "method": "unknown",
+   "status": "UNTRACKED",
+   "outcome_class": "activation_unknown",
+   "published_at": "2026-09-05T07:17:56+00:00",
+   "archive": null
+  },
+  {
+   "report_id": "c93100c04416",
+   "plan_index": 0,
+   "symbol": "TREEUSDT",
+   "method": "unknown",
+   "status": "UNTRACKED",
+   "outcome_class": "activation_unknown",
+   "published_at": "2026-08-31T07:21:12+00:00",
+   "archive": null
+  },
+  {
+   "report_id": "c93100c04416",
+   "plan_index": 1,
+   "symbol": "0GUSDT",
+   "method": "unknown",
+   "status": "UNTRACKED",
+   "outcome_class": "activation_unknown",
+   "published_at": "2026-08-31T07:21:12+00:00",
+   "archive": null
+  }
+ ]
+}

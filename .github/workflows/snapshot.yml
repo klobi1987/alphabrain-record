@@ -1,0 +1,43 @@
+name: Daily record snapshot
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch the public record and write today's manifest
+        id: snap
+        run: |
+          python scripts/snapshot.py | tee snapshot.log
+        continue-on-error: true
+      - name: Commit if anything changed
+        run: |
+          git config user.name "alphabrain-record[bot]"
+          git config user.email "record@alphabrain-ai.com"
+          git add manifests ledger latest.json MANIFESTS.md
+          if git diff --cached --quiet; then
+            echo "nothing new"
+            exit 0
+          fi
+          git commit -m "snapshot $(date -u +%F): $(cat snapshot.log | tail -1)"
+          git push
+      - name: Fail loudly if the served manifest did not match the recomputed one
+        if: steps.snap.outcome == 'failure'
+        run: |
+          echo "::error::served manifest_sha256 differs from the recomputed ledger hash, or the fetch failed"
+          exit 1
