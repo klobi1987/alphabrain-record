@@ -1,8 +1,8 @@
 {
  "snapshot_date": "2026-09-09",
- "fetched_at": "2026-09-09T21:25:03+00:00",
+ "fetched_at": "2026-09-09T21:25:30+00:00",
  "source": "https://alphabrain-ai.com/api/data/premium/public/outcome-record?days=365",
- "as_of": "2026-09-09T21:25:02.442000+00:00",
+ "as_of": "2026-09-09T21:25:29.816000+00:00",
  "window_days": 365,
  "manifest_sha256_served": "38dfb8bfe6c6384464c05874229d81e3df5e5ad9ef787260cc7d785c62c2f6e8",
  "manifest_sha256_recomputed": "38dfb8bfe6c6384464c05874229d81e3df5e5ad9ef787260cc7d785c62c2f6e8",
