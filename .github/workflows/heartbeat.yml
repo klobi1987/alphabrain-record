@@ -1,0 +1,40 @@
+name: Heartbeat watch
+
+# Dead-man switch for alphabrain-ai.com's background work. The API reports when each
+# phase (outcome replay, outbox sender, price alerts, ops check) last completed and
+# answers 503 when any is stale. A failed run here is the alarm: GitHub notifies the
+# repository owner about failed scheduled runs independently of the site's own push path.
+# GitHub schedules can be delayed; this is a watcher with minutes of slack, not an SLA.
+
+on:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: heartbeat
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ask the site when each background phase last completed
+        run: |
+          nonce="$(date -u +%s)-${GITHUB_RUN_ID}"
+          url="https://alphabrain-ai.com/api/data/premium/public/ops-heartbeat?nonce=${nonce}"
+          body="$(curl -sS --max-time 20 -H 'Cache-Control: no-store' -w '\n%{http_code}' "$url" || true)"
+          code="${body##*$'\n'}"
+          json="${body%$'\n'*}"
+          echo "HTTP ${code}"
+          echo "${json}" | head -c 2000; echo
+          if [ "${code}" != "200" ]; then
+            echo "::error::heartbeat endpoint answered HTTP ${code}: a background phase is stale or the API is down"
+            exit 1
+          fi
+          echo "${json}" | grep -q "\"nonce\":\"${nonce}\"" || { echo "::error::response did not echo the nonce (cached or wrong body)"; exit 1; }
+          echo "${json}" | grep -q '"ok":true' || { echo "::error::heartbeat body says ok=false"; exit 1; }
