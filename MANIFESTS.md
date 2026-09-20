@@ -4,6 +4,7 @@ Newest first. `manifest` is the SHA-256 of the canonical public ledger as served
 
 | date | manifest | matured | immature | corrections | consistent |
 |---|---|---|---|---|---|
+| 2026-09-20 | `63c9b324392a02c9` | 104 | 0 | 0 | yes |
 | 2026-09-19 | `63c9b324392a02c9` | 104 | 0 | 0 | yes |
 | 2026-09-18 | `63c9b324392a02c9` | 104 | 0 | 0 | yes |
 | 2026-09-17 | `63c9b324392a02c9` | 104 | 0 | 0 | yes |
